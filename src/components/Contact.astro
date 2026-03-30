@@ -1,0 +1,111 @@
+---
+import { siteConfig } from "../config";
+---
+
+<section id="contact" class="p-8 sm:p-12 md:p-16 lg:p-24">
+  <div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+      <!-- Left Side -->
+      <div class="lg:col-span-4">
+        <h2
+          class="text-3xl sm:text-4xl md:text-4xl xl:text-5xl font-bold text-gray-900"
+        >
+          Contact Me
+        </h2>
+        <div
+          class="w-[75px] h-[5px] mt-2 rounded-full"
+          style={`background-color: ${siteConfig.accentColor}`}
+        >
+        </div>
+      </div>
+
+      <!-- Right Side (Form) -->
+      <div class="lg:col-span-8">
+        <form
+          id="contactForm"
+          action="https://formspree.io/f/xvgwwjzd"
+          method="POST"
+          class="space-y-6 bg-gray-50 p-6 rounded-2xl shadow-md"
+        >
+          <div>
+            <label for="name" class="block text-gray-700 font-medium mb-1">
+              Your Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              autocomplete="given-name"
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[${siteConfig.accentColor}]"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block text-gray-700 font-medium mb-1">
+              Your Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              autocomplete="given-email"
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[${siteConfig.accentColor}]"
+            />
+          </div>
+
+          <div>
+            <label for="phone" class="block text-gray-700 font-medium mb-1">
+              Your Phone
+            </label>
+            <input
+              id="phone"
+              type="text"
+              name="phone"
+              autocomplete="tel"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[${siteConfig.accentColor}]"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="block text-gray-700 font-medium mb-1">
+              Your Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="4"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[${siteConfig.accentColor}]"
+            ></textarea>
+          </div>
+
+          <!-- Hidden IP field -->
+          <input type="hidden" name="client_ip" id="client_ip" value="" />
+
+          <button
+            type="submit"
+            class="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-gray-900 text-white rounded-md sm:rounded-lg text-lg sm:text-lg cursor-pointer font-medium transition-all duration-300 hover:bg-gray-800"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ Run in browser (client-side only) -->
+<script is:inline>
+  window.addEventListener("DOMContentLoaded", async () => {
+    try {
+      const res = await fetch("https://api.ipify.org?format=json");
+      const data = await res.json();
+      document.querySelector("#client_ip").value = data.ip;
+    } catch (err) {
+      console.warn("Failed to fetch client IP:", err);
+      document.querySelector("#client_ip").value = "Unavailable";
+    }
+  });
+</script>
