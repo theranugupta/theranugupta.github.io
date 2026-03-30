@@ -89,6 +89,34 @@ export const siteConfig = {
       ],
     },
   ],
+  achievements: {
+    awards: [
+      {
+        title: "Excellence in Front-End Architecture",
+        description: "Awarded for exceptional contributions to front-end architecture at FIS Global, recognized for delivering scalable, maintainable Angular systems across enterprise fintech products.",
+      },
+      {
+        title: "Web Performance Optimization Award",
+        description: "Recognized for reducing application load time by 30% through strategic use of lazy loading, change detection tuning, and bundle optimization across multiple projects.",
+      },
+    ],
+    metrics: [
+      { value: "8+", label: "Years of Experience" },
+      { value: "30%", label: "Load Time Reduction" },
+      { value: "70%", label: "KYC Verification Time Cut" },
+      { value: "50+", label: "Banks Served via Dashboard" },
+      { value: "12+", label: "Reusable UI Components Built" },
+      { value: "1M+", label: "Daily Transactions Analyzed" },
+    ],
+    softSkills: [
+      "Debugging & Cross-Browser Compatibility",
+      "Strong Communication & Team Collaboration",
+      "Agile & Scrum Methodologies",
+      "Mentoring & Knowledge Sharing",
+      "Pixel-Perfect UI Implementation",
+      "API Design & Backend Collaboration",
+    ],
+  },
   education: [
     {
       school: "RGPV University",

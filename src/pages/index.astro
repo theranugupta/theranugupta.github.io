@@ -5,7 +5,7 @@ import About from "../components/About.astro";
 import Projects from "../components/Projects.astro";
 import Experience from "../components/Experience.astro";
 import Education from "../components/Education.astro";
-import Github from "../components/Github.astro";
+import Achievements from "../components/Achievements.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 import { siteConfig } from "../config";
@@ -54,30 +54,25 @@ import "../styles/global.css";
       {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Shubham Kumar Rohit",
-        "url": "https://your-portfolio-url.com",
+        "name": "Ranu Gupta",
+        "url": "https://theranugupta.github.io",
         "sameAs": [
-          "https://github.com/progshubham",
-          "https://linkedin.com/in/shubham-kumar-rohit",
-          "https://twitter.com/progShubham"
+          "https://github.com/theranugupta",
+          "https://linkedin.com/in/ranu-gupta"
         ],
-        "jobTitle": "Software Engineering Head",
+        "jobTitle": "Senior Angular Developer",
         "worksFor": {
           "@type": "Organization",
-          "name": "Statiq",
-          "url": "https://statiq.in"
+          "name": "Cigna",
+          "url": "https://www.cigna.com"
         },
         "alumniOf": [
           {
             "@type": "EducationalOrganization",
-            "name": "Punjab Technical University"
-          },
-          {
-            "@type": "EducationalOrganization",
-            "name": "Kendriya Vidyalaya, Patna"
+            "name": "RGPV University"
           }
         ],
-        "knowsAbout": "Python, Go Lang, AWS, Microservices, ElasticSearch, Redis, MySQL, WebSocket, High Concurrency Systems"
+        "knowsAbout": "Angular, TypeScript, NgRx, RxJS, Angular Material, D3.js, Chart.js, Lazy Loading, Enterprise Web Applications"
       }
     </script>
   </head>
@@ -89,7 +84,7 @@ import "../styles/global.css";
       <Experience />
       <Projects />
       <Education />
-      <Github />
+      <Achievements />
       <Contact />
     </section>
     <Footer />
