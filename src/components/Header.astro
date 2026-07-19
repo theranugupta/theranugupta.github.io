@@ -47,8 +47,7 @@ const firstName = siteConfig.name.split(" ")[0];
       }
       <a
         href="#contact"
-        class="mt-2 inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_var(--accent-glow)] transition hover:-translate-y-0.5 lg:ml-2 lg:mt-0"
-        style={`background: linear-gradient(135deg, ${siteConfig.accentColor}, ${siteConfig.accentColorStrong})`}
+        class="btn-gradient mt-2 inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_var(--accent-glow)] transition hover:-translate-y-0.5 lg:ml-2 lg:mt-0"
       >
         Hire Me
       </a>
@@ -69,25 +68,21 @@ const firstName = siteConfig.name.split(" ")[0];
 
 <script>
   const header = document.getElementById("header");
+  const scrolledClasses = [
+    "bg-white/85",
+    "backdrop-blur-md",
+    "border-gray-200",
+    "shadow-[0_6px_24px_rgba(193,73,58,0.08)]",
+  ];
+  let scrolled = false;
   const onScroll = () => {
-    if (window.scrollY > 30) {
-      header?.classList.add(
-        "bg-white/85",
-        "backdrop-blur-md",
-        "border-gray-200",
-        "shadow-[0_6px_24px_rgba(193,73,58,0.08)]"
-      );
-    } else {
-      header?.classList.remove(
-        "bg-white/85",
-        "backdrop-blur-md",
-        "border-gray-200",
-        "shadow-[0_6px_24px_rgba(193,73,58,0.08)]"
-      );
-    }
+    const isPast = window.scrollY > 30;
+    if (isPast === scrolled) return;
+    scrolled = isPast;
+    header?.classList[isPast ? "add" : "remove"](...scrolledClasses);
   };
   onScroll();
-  window.addEventListener("scroll", onScroll);
+  window.addEventListener("scroll", onScroll, { passive: true });
 
   const brand = document.getElementById("nav-brand");
   brand?.addEventListener("click", (e) => {

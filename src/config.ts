@@ -1,6 +1,5 @@
 export const siteConfig = {
   name: "Ranu Gupta",
-  ex: "",
   title: "Senior Frontend Developer @ Cigna",
   subtitle: "React · Next.js · TypeScript · Redux · Tailwind",
   description: "Portfolio website of Ranu Gupta",
@@ -271,12 +270,5 @@ export const siteConfig = {
   resume: {
     url: "/Ranu_Gupta_React.pdf",
     label: "View resume (PDF)",
-    file: "/Ranu_Gupta_React.pdf",
-    updated: "2nd June 2026",
-    highlights: [
-      "9 years of frontend engineering experience",
-      "React, Next.js, TypeScript, Redux, Tailwind, Shadcn UI",
-      "Cigna · FIS Global · Time Inc",
-    ],
   },
 };

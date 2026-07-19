@@ -4,6 +4,20 @@ import { siteConfig } from "../config";
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
 const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+
+const navLinks = [
+  { label: "About", href: "#about", show: true },
+  { label: "Experience", href: "#experience", show: hasExperience },
+  { label: "Projects", href: "#projects", show: hasProjects },
+  { label: "Education", href: "#education", show: hasEducation },
+  { label: "Github", href: "#github", show: true },
+  { label: "Contact", href: "#contact", show: true },
+].filter((link) => link.show);
+
+const navLinkClass =
+  "relative text-sm text-gray-600 transition-colors hover:text-[var(--accent-strong)] after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-[linear-gradient(90deg,var(--accent),var(--accent-strong))] after:transition-[width] after:duration-300 hover:after:w-full";
+const socialClass =
+  "inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:bg-[var(--accent)] hover:text-white hover:shadow-[0_8px_24px_var(--accent-glow)]";
 ---
 
 <footer class="relative bg-gray-50 border-t border-gray-200">
@@ -25,8 +39,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
           <a
             href={`mailto:${siteConfig.social.email}`}
             aria-label="Email"
-            class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:bg-[var(--accent)] hover:text-white hover:shadow-[0_8px_24px_var(--accent-glow)]"
-            style={`--accent-color: ${siteConfig.accentColor}`}
+            class={socialClass}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -52,8 +65,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:bg-[var(--accent)] hover:text-white hover:shadow-[0_8px_24px_var(--accent-glow)]"
-            style={`--accent-color: ${siteConfig.accentColor}`}
+            class={socialClass}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -78,8 +90,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Twitter"
-            class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:bg-[var(--accent)] hover:text-white hover:shadow-[0_8px_24px_var(--accent-glow)]"
-            style={`--accent-color: ${siteConfig.accentColor}`}
+            class={socialClass}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -102,8 +113,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:bg-[var(--accent)] hover:text-white hover:shadow-[0_8px_24px_var(--accent-glow)]"
-            style={`--accent-color: ${siteConfig.accentColor}`}
+            class={socialClass}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -126,51 +136,13 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
 
       <div class="hidden md:block flex flex-col md:items-end gap-4">
         <nav class="flex gap-x-8">
-          <a
-            href="#about"
-            class="relative text-sm text-gray-600 transition-colors hover:text-[var(--accent-strong)] after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-[linear-gradient(90deg,var(--accent),var(--accent-strong))] after:transition-[width] after:duration-300 hover:after:w-full"
-            >About</a
-          >
           {
-            hasExperience && (
-              <a
-                href="#experience"
-                class="relative text-sm text-gray-600 transition-colors hover:text-[var(--accent-strong)] after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-[linear-gradient(90deg,var(--accent),var(--accent-strong))] after:transition-[width] after:duration-300 hover:after:w-full"
-              >
-                Experience
+            navLinks.map((link) => (
+              <a href={link.href} class={navLinkClass}>
+                {link.label}
               </a>
-            )
+            ))
           }
-          {
-            hasProjects && (
-              <a
-                href="#projects"
-                class="relative text-sm text-gray-600 transition-colors hover:text-[var(--accent-strong)] after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-[linear-gradient(90deg,var(--accent),var(--accent-strong))] after:transition-[width] after:duration-300 hover:after:w-full"
-              >
-                Projects
-              </a>
-            )
-          }
-          {
-            hasEducation && (
-              <a
-                href="#education"
-                class="relative text-sm text-gray-600 transition-colors hover:text-[var(--accent-strong)] after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-[linear-gradient(90deg,var(--accent),var(--accent-strong))] after:transition-[width] after:duration-300 hover:after:w-full"
-              >
-                Education
-              </a>
-            )
-          }
-          <a
-            href=#github
-            class="relative text-sm text-gray-600 transition-colors hover:text-[var(--accent-strong)] after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-[linear-gradient(90deg,var(--accent),var(--accent-strong))] after:transition-[width] after:duration-300 hover:after:w-full"
-            >Github</a
-          >
-          <a
-            href="#contact"
-            class="relative text-sm text-gray-600 transition-colors hover:text-[var(--accent-strong)] after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-[linear-gradient(90deg,var(--accent),var(--accent-strong))] after:transition-[width] after:duration-300 hover:after:w-full"
-            >Contact</a
-          >
         </nav>
         <p class="text-sm text-gray-500">
           © {new Date().getFullYear()}
