@@ -1,0 +1,36 @@
+---
+import { siteConfig } from "../config";
+---
+
+<section id="resume" class="bg-gray-50 px-6 py-16 sm:px-8 md:px-16 md:py-20 lg:px-24 lg:py-24">
+  <div class="mx-auto max-w-6xl rounded-3xl border border-gray-200 bg-white p-8 shadow-sm sm:p-10 lg:p-12">
+    <div class="max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
+        Resume
+      </p>
+      <h2 class="mt-4 text-3xl font-bold text-gray-900 sm:text-4xl">
+        Interested in the full story? View or share my resume.
+      </h2>
+      <p class="mt-4 text-lg leading-8 text-gray-600">
+        A snapshot of my experience across enterprise platforms, product teams, and performance-focused frontend delivery.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a
+          href={siteConfig.resume?.url || siteConfig.social.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+          style={{ backgroundColor: siteConfig.accentColor }}
+        >
+          {siteConfig.resume?.label || "View resume"}
+        </a>
+        <a
+          href="#contact"
+          class="inline-flex items-center rounded-full border border-gray-300 bg-white px-5 py-3 text-sm font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
+        >
+          Contact me
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

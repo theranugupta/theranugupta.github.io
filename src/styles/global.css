@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  margin: 0;
   font-family: 'IBM Plex Mono', monospace;
+  background: #fbf6f2;
+  color: #2a1a14;
+}
+
+::selection {
+  background: #f0a085;
+  color: #2a1a14;
 }

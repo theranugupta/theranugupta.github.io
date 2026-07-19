@@ -6,6 +6,8 @@ import Projects from "../components/Projects.astro";
 import Experience from "../components/Experience.astro";
 import Education from "../components/Education.astro";
 import Achievements from "../components/Achievements.astro";
+import Interests from "../components/Interests.astro";
+import Resume from "../components/Resume.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 import { siteConfig } from "../config";
@@ -33,7 +35,6 @@ import "../styles/global.css";
     <meta name="keywords" content={siteConfig.seo.keywords} />
     <meta name="author" content={siteConfig.name} />
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={siteConfig.name} />
     <meta property="og:description" content={siteConfig.seo.description} />
@@ -41,7 +42,6 @@ import "../styles/global.css";
     <meta property="og:image" content={siteConfig.seo.image} />
     <meta property="og:site_name" content={siteConfig.name} />
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={siteConfig.name} />
     <meta name="twitter:description" content={siteConfig.seo.description} />
@@ -49,7 +49,6 @@ import "../styles/global.css";
     <meta name="twitter:site" content={siteConfig.seo.twitterHandle} />
     <meta name="twitter:creator" content={siteConfig.seo.twitterHandle} />
 
-    <!-- Structured Data JSON-LD for SEO -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -58,9 +57,9 @@ import "../styles/global.css";
         "url": "https://theranugupta.github.io",
         "sameAs": [
           "https://github.com/theranugupta",
-          "https://linkedin.com/in/ranu-gupta"
+          "https://www.linkedin.com/in/ranu-gupta-551438159/"
         ],
-        "jobTitle": "Senior Angular Developer",
+        "jobTitle": "Senior Frontend Developer",
         "worksFor": {
           "@type": "Organization",
           "name": "Cigna",
@@ -72,23 +71,23 @@ import "../styles/global.css";
             "name": "RGPV University"
           }
         ],
-        "knowsAbout": "Angular, TypeScript, NgRx, RxJS, Angular Material, D3.js, Chart.js, Lazy Loading, Enterprise Web Applications"
+        "knowsAbout": "React, Next.js, TypeScript, Redux, Tailwind CSS, Shadcn UI, D3.js, Chart.js, SSR, SSG, Enterprise Web Applications"
       }
     </script>
   </head>
   <body>
     <Header />
-    <section>
+    <main>
       <Hero />
       <About />
       <Experience />
       <Projects />
       <Education />
       <Achievements />
+      <Interests />
+      <Resume />
       <Contact />
-    </section>
+    </main>
     <Footer />
   </body>
 </html>
-
-<!-- To deploy with GitHub Pages, https://docs.astro.build/en/guides/deploy/github/ -->
