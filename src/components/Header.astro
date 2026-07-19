@@ -20,7 +20,8 @@ const firstName = siteConfig.name.split(" ")[0];
 >
   <div class="mx-auto flex max-w-6xl items-center gap-4 px-6 sm:px-8">
     <a
-      href="#hero"
+      id="nav-brand"
+      href="/"
       class="mr-auto inline-flex items-center gap-2 text-lg font-bold text-gray-900"
     >
       <span
@@ -87,6 +88,13 @@ const firstName = siteConfig.name.split(" ")[0];
   };
   onScroll();
   window.addEventListener("scroll", onScroll);
+
+  const brand = document.getElementById("nav-brand");
+  brand?.addEventListener("click", (e) => {
+    e.preventDefault();
+    history.replaceState(null, "", window.location.pathname);
+    window.location.reload();
+  });
 
   const toggle = document.getElementById("nav-toggle");
   const links = document.getElementById("nav-links");
