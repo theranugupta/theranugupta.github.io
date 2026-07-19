@@ -1,213 +1,82 @@
 ---
 import { siteConfig } from "../config";
+
+const [role, company] = siteConfig.title.split(" @ ");
+const about = siteConfig.aboutMe.join(" ");
+const code = `const developer = {
+  name: 'Ranu Gupta',
+  role: 'Senior Front-end Dev',
+  stack: [
+    'React', 'Redux',
+    'TypeScript', 'Next.js'
+  ],
+  yearsOfExperience: 9,
+  loves: ['clean code', 'a11y'],
+  shipping: true,
+};`;
 ---
 
-<div
-  id="hero"
-  class="relative isolate overflow-hidden bg-[#fbf6f2] py-24 md:min-h-screen"
-  style={`--accent-color: ${siteConfig.accentColor}`}
->
+<section id="hero" class="relative isolate overflow-hidden pt-32 pb-16 md:pt-36">
   <div
-    class="absolute inset-0 -z-10"
-    style={`background: radial-gradient(ellipse 900px 1200px at 0% 0%, ${siteConfig.accentColor}33 0%, ${siteConfig.accentColor}12 30%, rgba(255,255,255,0.7) 70%, #fbf6f2 100%)`}
-  />
-  <div class="mx-auto flex max-w-6xl flex-col gap-12 px-6 py-12 sm:px-8 md:px-16 lg:flex-row lg:items-end lg:justify-between lg:px-24 lg:py-24">
-    <div class="max-w-3xl">
-      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
-        Portfolio • React • Frontend Engineering
-      </p>
-      <h1 class="mt-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-7xl">
-        I'm <span style={{ color: siteConfig.accentColor }}>{siteConfig.name}</span>
+    class="mx-auto grid max-w-6xl items-center gap-12 px-6 sm:px-8 lg:grid-cols-[1.1fr_0.9fr]"
+  >
+    <div>
+      <span
+        class="inline-block rounded-full border border-gray-300 px-3.5 py-1.5 text-[13px] font-semibold"
+        style={`background-color: var(--accent-soft); color: ${siteConfig.accentColorStrong}`}
+      >
+        Hello! 👋
+      </span>
+      <h1
+        class="mt-5 text-[clamp(32px,5vw,56px)] font-extrabold leading-[1.15] tracking-[-0.03em] text-gray-900"
+      >
+        I'm <span class="gradient-text">{siteConfig.name}</span>,<br />
+        {role}<br />
+        <span class="font-semibold text-gray-600">@ {company}</span>
       </h1>
-      <p class="mt-5 text-lg font-medium text-gray-700 sm:text-xl">
-        {siteConfig.title} {siteConfig.ex}
-      </p>
-      <p class="mt-3 max-w-2xl text-base leading-8 text-gray-600 sm:text-lg">
+      <p
+        class="mt-4 font-mono font-semibold"
+        style={`color: ${siteConfig.accentColorStrong}`}
+      >
         {siteConfig.subtitle}
       </p>
-      <div class="mt-8 flex flex-wrap gap-4">
+      <p class="mt-4 max-w-[560px] leading-7 text-gray-600">{about}</p>
+      <div class="mt-7 flex flex-wrap gap-3">
         <a
           href="#projects"
-          class="inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold text-white shadow-[0_8px_24px_var(--accent-glow)] transition hover:opacity-90"
+          class="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white shadow-[0_8px_24px_var(--accent-glow)] transition hover:-translate-y-0.5"
           style={`background: linear-gradient(135deg, ${siteConfig.accentColor}, ${siteConfig.accentColorStrong})`}
         >
-          Explore projects
+          View My Work
         </a>
         <a
-          href={siteConfig.resume?.url || "#contact"}
-          class="inline-flex items-center rounded-full border border-gray-300 bg-white px-5 py-3 text-sm font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
+          href={siteConfig.resume?.url}
+          download
+          class="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-5 py-3 text-sm font-semibold text-gray-900 transition hover:-translate-y-0.5 hover:border-[var(--accent)] hover:text-[var(--accent-strong)]"
         >
-          View resume
+          <span aria-hidden="true">⬇</span> Download Resume
         </a>
       </div>
     </div>
 
-    <div class="max-w-sm rounded-3xl border border-gray-200 bg-white/80 p-6 shadow-sm backdrop-blur">
-      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
-        Current focus
-      </p>
-      <ul class="mt-4 space-y-3 text-sm text-gray-700">
-        <li class="flex items-start gap-3">
-          <span class="mt-1 h-2.5 w-2.5 rounded-full" style={{ backgroundColor: siteConfig.accentColor }} />
-          Building scalable React and Next.js applications for enterprise products
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="mt-1 h-2.5 w-2.5 rounded-full" style={{ backgroundColor: siteConfig.accentColor }} />
-          Improving performance, maintainability, and developer experience
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="mt-1 h-2.5 w-2.5 rounded-full" style={{ backgroundColor: siteConfig.accentColor }} />
-          Collaborating across teams to deliver polished digital experiences
-        </li>
-      </ul>
+    <div class="flex justify-center lg:justify-end" aria-hidden="true">
+      <div
+        class="w-full max-w-[440px] overflow-hidden rounded-2xl border border-[#3a2419] shadow-[0_30px_60px_rgba(193,73,58,0.22),inset_0_0_0_1px_rgba(224,120,86,0.2)]"
+        style="background: linear-gradient(180deg, #2a1a14, #1a100c)"
+      >
+        <div
+          class="flex items-center gap-1.5 border-b border-white/10 bg-black/25 px-3.5 py-3"
+        >
+          <span class="h-3 w-3 rounded-full bg-[#ff6b6b]"></span>
+          <span class="h-3 w-3 rounded-full bg-[#f0a085]"></span>
+          <span class="h-3 w-3 rounded-full bg-[#e9d49a]"></span>
+          <span class="ml-auto font-mono text-xs text-[#f5dccc]"
+            >ranu.profile.ts</span
+          >
+        </div>
+        <pre
+          class="m-0 overflow-x-auto p-5 font-mono text-sm leading-7 text-[#fdeee5]">{code}</pre>
+      </div>
     </div>
   </div>
-
-  <div class="mx-auto flex max-w-6xl flex-wrap gap-4 px-6 pb-6 sm:px-8 md:px-16 lg:px-24">
-    {
-      siteConfig.social?.email && (
-        <a
-          href={`mailto:${siteConfig.social.email}`}
-          aria-label="Email"
-          class="transition-colors duration-300 hover:text-[var(--accent-color)]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="h-6 w-6"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
-            <path d="M3 7l9 6l9 -6" />
-          </svg>
-        </a>
-      )
-    }
-    {
-      siteConfig.social?.linkedin && (
-        <a
-          href={siteConfig.social.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          class="transition-colors duration-300 hover:text-[var(--accent-color)]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="h-6 w-6"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M8 11v5" />
-            <path d="M8 8v.01" />
-            <path d="M12 16v-5" />
-            <path d="M16 16v-3a2 2 0 1 0 -4 0" />
-            <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" />
-          </svg>
-        </a>
-      )
-    }
-    {
-      siteConfig.social?.twitter && (
-        <a
-          href={siteConfig.social.twitter}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Twitter"
-          class="transition-colors duration-300 hover:text-[var(--accent-color)]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="h-6 w-6"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-            <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-          </svg>
-        </a>
-      )
-    }
-    {
-      siteConfig.social?.github && (
-
-        <a
-          href={siteConfig.social.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          class="transition-colors duration-300 hover:text-[var(--accent-color)]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8"
-          >
-            <>
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-            </>
-          </svg>
-        </a>
-      )
-    }
-  </div>
-</div>
-
-<style>
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
-    opacity: 0;
-  }
-
-  .animation-delay-200 {
-    animation-delay: 0.2s;
-  }
-
-  .animation-delay-400 {
-    animation-delay: 0.4s;
-  }
-
-  .animation-delay-600 {
-    animation-delay: 0.6s;
-  }
-</style>
+</section>

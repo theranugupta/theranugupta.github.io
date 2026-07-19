@@ -1,80 +1,110 @@
 ---
 import { siteConfig } from "../config";
 
-const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
-const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
-const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Education", href: "#education" },
+  { label: "Achievements", href: "#achievements" },
+  { label: "Interests", href: "#interests" },
+  { label: "Resume", href: "#resume" },
+  { label: "Contact", href: "#contact" },
+];
+const firstName = siteConfig.name.split(" ")[0];
 ---
 
 <header
   id="header"
-  class="fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300"
+  class="fixed inset-x-0 top-0 z-50 border-b border-transparent py-3 transition-all duration-300"
 >
-  <nav class="mx-auto max-w-7xl px-8 py-4">
-    <ul class="flex items-center justify-center gap-6 lg:gap-8">
-      <li>
-        <a href="#about" class="font-medium text-gray-700 transition-colors hover:text-black">
-          About
-        </a>
-      </li>
+  <div class="mx-auto flex max-w-6xl items-center gap-4 px-6 sm:px-8">
+    <a
+      href="#hero"
+      class="mr-auto inline-flex items-center gap-2 text-lg font-bold text-gray-900"
+    >
+      <span
+        class="font-mono"
+        style={`color: ${siteConfig.accentColorStrong}`}>{"</>"}</span
+      >
+      <span>{firstName}</span>
+    </a>
+
+    <nav
+      id="nav-links"
+      class="pointer-events-none absolute left-4 right-4 top-16 flex -translate-y-2 flex-col gap-1 rounded-2xl border border-gray-200 bg-white p-3 opacity-0 shadow-lg transition-all duration-150 lg:pointer-events-auto lg:static lg:translate-y-0 lg:flex-row lg:items-center lg:gap-6 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:opacity-100 lg:shadow-none"
+    >
       {
-        hasExperience && (
-          <li>
-            <a href="#experience" class="font-medium text-gray-700 transition-colors hover:text-black">
-              Experience
-            </a>
-          </li>
-        )
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="rounded-xl px-3 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-[var(--accent-soft)] hover:text-[var(--accent-strong)] lg:rounded-none lg:bg-transparent lg:p-0 lg:hover:bg-transparent"
+          >
+            {link.label}
+          </a>
+        ))
       }
-      {
-        hasProjects && (
-          <li>
-            <a href="#projects" class="font-medium text-gray-700 transition-colors hover:text-black">
-              Projects
-            </a>
-          </li>
-        )
-      }
-      {
-        hasEducation && (
-          <li>
-            <a href="#education" class="font-medium text-gray-700 transition-colors hover:text-black">
-              Education
-            </a>
-          </li>
-        )
-      }
-      <li>
-        <a href="#achievements" class="font-medium text-gray-700 transition-colors hover:text-black">
-          Achievements
-        </a>
-      </li>
-      <li>
-        <a href="#interests" class="font-medium text-gray-700 transition-colors hover:text-black">
-          Interests
-        </a>
-      </li>
-      <li>
-        <a href="#resume" class="font-medium text-gray-700 transition-colors hover:text-black">
-          Resume
-        </a>
-      </li>
-      <li>
-        <a href="#contact" class="font-medium text-gray-700 transition-colors hover:text-black">
-          Contact
-        </a>
-      </li>
-    </ul>
-  </nav>
+      <a
+        href="#contact"
+        class="mt-2 inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_var(--accent-glow)] transition hover:-translate-y-0.5 lg:ml-2 lg:mt-0"
+        style={`background: linear-gradient(135deg, ${siteConfig.accentColor}, ${siteConfig.accentColorStrong})`}
+      >
+        Hire Me
+      </a>
+    </nav>
+
+    <button
+      id="nav-toggle"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      class="flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-[10px] border border-gray-300 bg-white lg:hidden"
+    >
+      <span class="block h-0.5 w-[18px] rounded bg-gray-900"></span>
+      <span class="block h-0.5 w-[18px] rounded bg-gray-900"></span>
+      <span class="block h-0.5 w-[18px] rounded bg-gray-900"></span>
+    </button>
+  </div>
 </header>
 
 <script>
-  window.addEventListener("scroll", () => {
-    const header = document.getElementById("header");
-    if (window.scrollY > 100) {
-      header?.classList.add("bg-white/80", "backdrop-blur-sm");
+  const header = document.getElementById("header");
+  const onScroll = () => {
+    if (window.scrollY > 30) {
+      header?.classList.add(
+        "bg-white/85",
+        "backdrop-blur-md",
+        "border-gray-200",
+        "shadow-[0_6px_24px_rgba(193,73,58,0.08)]"
+      );
     } else {
-      header?.classList.remove("bg-white/80", "backdrop-blur-sm");
+      header?.classList.remove(
+        "bg-white/85",
+        "backdrop-blur-md",
+        "border-gray-200",
+        "shadow-[0_6px_24px_rgba(193,73,58,0.08)]"
+      );
     }
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll);
+
+  const toggle = document.getElementById("nav-toggle");
+  const links = document.getElementById("nav-links");
+  const openClasses = ["pointer-events-auto", "translate-y-0", "opacity-100"];
+  const closeMenu = () => {
+    links?.classList.remove(...openClasses);
+    toggle?.setAttribute("aria-expanded", "false");
+  };
+  toggle?.addEventListener("click", () => {
+    const isOpen = links?.classList.contains("opacity-100");
+    if (isOpen) {
+      closeMenu();
+    } else {
+      links?.classList.add(...openClasses);
+      toggle?.setAttribute("aria-expanded", "true");
+    }
+  });
+  links?.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", closeMenu);
   });
 </script>
