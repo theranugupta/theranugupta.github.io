@@ -4,7 +4,8 @@ export const siteConfig = {
   title: "Senior Frontend Developer @ Cigna",
   subtitle: "React · Next.js · TypeScript · Redux · Tailwind",
   description: "Portfolio website of Ranu Gupta",
-  accentColor: "#7c3aed",
+  accentColor: "#e07856",
+  accentColorStrong: "#c1493a",
   social: {
     phone: "+91-9901969903",
     email: "the.ranu.gupta@gmail.com",

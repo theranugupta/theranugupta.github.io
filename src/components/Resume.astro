@@ -20,7 +20,7 @@ import { siteConfig } from "../config";
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
-          style={{ backgroundColor: siteConfig.accentColor }}
+          style={`background: linear-gradient(135deg, ${siteConfig.accentColor}, ${siteConfig.accentColorStrong})`}
         >
           {siteConfig.resume?.label || "View resume"}
         </a>

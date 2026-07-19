@@ -1,7 +1,32 @@
 @import "tailwindcss";
 
+/*
+ * Warm sunset palette (from my-portfolio):
+ * terracotta #e07856 → deep red #c1493a on peachy off-white #fbf6f2.
+ * The Tailwind gray scale is remapped to warm browns so every
+ * existing gray-* utility inherits the theme.
+ */
+@theme {
+  --color-gray-50: #f8efe7;
+  --color-gray-100: #fdeee5;
+  --color-gray-200: #f5dccc;
+  --color-gray-300: #ebc0a8;
+  --color-gray-400: #b08d7d;
+  --color-gray-500: #8a685a;
+  --color-gray-600: #6b5147;
+  --color-gray-700: #543f36;
+  --color-gray-800: #3a2a21;
+  --color-gray-900: #2a1a14;
+  --color-gray-950: #1a0f0a;
+}
+
 :root {
   color-scheme: light;
+  --accent: #e07856;
+  --accent-strong: #c1493a;
+  --accent-2: #f0a085;
+  --accent-soft: #fdeee5;
+  --accent-glow: rgba(224, 120, 86, 0.22);
 }
 
 html {
@@ -11,11 +36,21 @@ html {
 body {
   margin: 0;
   font-family: 'IBM Plex Mono', monospace;
-  background: #fbf6f2;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(224, 120, 86, 0.14), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(193, 73, 58, 0.1), transparent 60%),
+    #fbf6f2;
   color: #2a1a14;
 }
 
 ::selection {
   background: #f0a085;
   color: #2a1a14;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
