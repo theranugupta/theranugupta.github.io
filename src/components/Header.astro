@@ -38,7 +38,7 @@ const firstName = siteConfig.name.split(" ")[0];
         navLinks.map((link) => (
           <a
             href={link.href}
-            class="rounded-xl px-3 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-[var(--accent-soft)] hover:text-[var(--accent-strong)] lg:rounded-none lg:bg-transparent lg:p-0 lg:hover:bg-transparent"
+            class="relative rounded-xl px-3 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-[var(--accent-soft)] hover:text-[var(--accent-strong)] lg:rounded-none lg:bg-transparent lg:p-0 lg:hover:bg-transparent lg:hover:text-[var(--accent-strong)] lg:after:absolute lg:after:-bottom-1.5 lg:after:left-0 lg:after:h-0.5 lg:after:w-0 lg:after:rounded-full lg:after:bg-[linear-gradient(90deg,var(--accent),var(--accent-strong))] lg:after:transition-[width] lg:after:duration-300 lg:hover:after:w-full"
           >
             {link.label}
           </a>
